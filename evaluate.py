@@ -19,7 +19,7 @@ from core.datasets import MpiSintel
 from core.datasets import CELL
 
 
-from core.CELL2 import CELL
+from core.CELL2 import CELL1
 from core.utils.utils import InputPadder, forward_interpolate
 
 
