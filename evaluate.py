@@ -1,4 +1,4 @@
-import sys
+limport sys
 sys.path.append('core')
 
 from PIL import Image
@@ -19,7 +19,7 @@ from core.datasets import MpiSintel
 from core.datasets import CELL
 
 
-from core.raft2 import RAFT
+from core.CELL2 import CELL
 from core.utils.utils import InputPadder, forward_interpolate
 
 
@@ -272,7 +272,7 @@ if __name__ == '__main__':
     parser.add_argument('--image_size', type=int, nargs='+', default=[384, 512])
     args = parser.parse_args()
 
-    model = torch.nn.DataParallel(RAFT(args))
+    model = torch.nn.DataParallel(CELL(args))
     # model.load_state_dict(torch.load(args.model))
     model.load_state_dict(torch.load(args.model, map_location='cpu'))
 
