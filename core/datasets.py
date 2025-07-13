@@ -193,7 +193,7 @@ class KITTI(FlowDataset):
 #
 #         if split == 'training':
 #             self.flow_list = sorted(glob(osp.join(root, 'flow_occ/*_10.png')))
-class CELL(FlowDataset):
+class CELL_dataset(FlowDataset):
     def __init__(self, aug_params=None, split='training', root='./datasets/cell', dstype='clean'):
         super(CELL, self).__init__(aug_params)
         flow_root = osp.join(root, split, 'flow')
