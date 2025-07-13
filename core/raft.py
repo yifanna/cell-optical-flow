@@ -21,9 +21,9 @@ except:
             pass
 
 
-class RAFT(nn.Module):
+class CELL(nn.Module):
     def __init__(self, args):
-        super(RAFT, self).__init__()
+        super(CELL, self).__init__()
         self.args = args
 
         if args.small:
