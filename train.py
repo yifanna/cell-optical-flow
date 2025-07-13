@@ -201,7 +201,7 @@ def train(args):
                         results.update(evaluate.validate_sintel(model.module))
                     elif val_dataset == 'kitti':
                         results.update(evaluate.validate_kitti(model.module))
-                    elif val_dataset == 'CELL-dataset':
+                    elif val_dataset == 'CELL_dataset':
                         results.update(evaluate.validate_cell(model.module))
 
                 logger.write_dict(results)
@@ -252,5 +252,5 @@ if __name__ == '__main__':
 
     if not os.path.isdir('checkpoints'):
         os.mkdir('checkpoints')
-    # args.stage = 'CELL-dataset'  # 将stage设置为CELL以在CELL数据集上进行训练
+    # args.stage = 'CELL_dataset'  # 将stage设置为CELL以在CELL数据集上进行训练
     train(args)
