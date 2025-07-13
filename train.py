@@ -15,7 +15,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 from torch.utils.data import DataLoader
-from core.raft2 import RAFT
+from core.CELL2 import CELL
 import evaluate
 import datasets
 from core.datasets import fetch_dataloader
@@ -138,7 +138,7 @@ class Logger:
 
 def train(args):
 
-    model = nn.DataParallel(RAFT(args), device_ids=args.gpus)
+    model = nn.DataParallel(CELL(args), device_ids=args.gpus)
     print("Parameter Count: %d" % count_parameters(model))
 
     if args.restore_ckpt is not None:
@@ -201,7 +201,7 @@ def train(args):
                         results.update(evaluate.validate_sintel(model.module))
                     elif val_dataset == 'kitti':
                         results.update(evaluate.validate_kitti(model.module))
-                    elif val_dataset == 'CELL':
+                    elif val_dataset == 'CELL-dataset':
                         results.update(evaluate.validate_cell(model.module))
 
                 logger.write_dict(results)
@@ -252,5 +252,5 @@ if __name__ == '__main__':
 
     if not os.path.isdir('checkpoints'):
         os.mkdir('checkpoints')
-    # args.stage = 'CELL'  # 将stage设置为CELL以在CELL数据集上进行训练
+    # args.stage = 'CELL-dataset'  # 将stage设置为CELL以在CELL数据集上进行训练
     train(args)
