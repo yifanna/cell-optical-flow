@@ -27,7 +27,7 @@ except:
             pass
 
 
-class RAFT(nn.Module):
+class CELL(nn.Module):
     def __init__(self, args,num_scales=1,
                  upsample_factor=8,
                  feature_channel=128,
@@ -36,7 +36,7 @@ class RAFT(nn.Module):
                  num_transformer_layers=4,
                  ffn_dim_expansion=4,
                  num_head=1,):
-        super(RAFT, self).__init__()
+        super(CELL, self).__init__()
         self.num_scales = num_scales
         self.upsample_factor = upsample_factor
         self.attention_type = attention_type
@@ -198,7 +198,7 @@ if __name__ == '__main__':
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
     parser.add_argument('--alternate_corr', action='store_true', help='use efficent correlation implementation')
     args = parser.parse_args()
-    block=RAFT(args)
+    block=CELL(args)
     input1=torch.rand(1,3,696,520)
     input2=torch.rand(1,3,696,520)
     output=block(input1,input2)
