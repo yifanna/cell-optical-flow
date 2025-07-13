@@ -31,10 +31,7 @@ To evaluate/train RAFT, you will need to download the required datasets.
 * [Sintel](http://sintel.is.tue.mpg.de/)
 * [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=flow)
 * [HD1K](http://hci-benchmark.iwr.uni-heidelberg.de/) (optional)
-* [Cell](http://hci-benchmark.iwr.uni-heidelberg.de/) (optional)
-
-
-By default `datasets.py` will search for the datasets in these locations. You can create symbolic links to wherever the datasets were downloaded in the `datasets` folder
+* [Cell](http://celltrackingchallenge.net/2d-datasets/) (publicly available PhC-C2DH-U373 cell dataset)
 
 ```Shell
 ├── datasets
@@ -51,7 +48,9 @@ By default `datasets.py` will search for the datasets in these locations. You ca
         ├── frames_cleanpass
         ├── frames_finalpass
         ├── optical_flow
-```
+   ├── Cell
+        ├── test
+        ├── training
 
 ## Evaluation
 You can evaluate a trained model using `evaluate.py`
