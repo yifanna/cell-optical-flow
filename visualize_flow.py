@@ -19,7 +19,7 @@ import cv2
 import math
 import os.path as osp
 
-from core.raft import RAFT
+from core.CELL2 import CELL
 
 from core.utils.utils import InputPadder, forward_interpolate
 import itertools
@@ -143,7 +143,7 @@ def prepare_image(root_dir, viz_root_dir, fn1, fn2, keep_size):
 def build_model():
     print(f"building  model...")
     cfg = get_cfg()
-    model = torch.nn.DataParallel(RAFT(cfg))
+    model = torch.nn.DataParallel(CELL(cfg))
     model.load_state_dict(torch.load(cfg.model))
 
     model.cuda()
