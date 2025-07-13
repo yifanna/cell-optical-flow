@@ -1,10 +1,7 @@
-# RAFT
+# Cell-flow
 This repository contains the source code for our paper:
 
-[RAFT: Recurrent All Pairs Field Transforms for Optical Flow](https://arxiv.org/pdf/2003.12039.pdf)<br/>
-ECCV 2020 <br/>
-Zachary Teed and Jia Deng<br/>
-
+[Cell-flow: Cell Image Sequence Tracking Based on Semi-Supervised Optical Flow Estimation Method]<br/>
 <img src="RAFT.png">
 
 ## Requirements
