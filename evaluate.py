@@ -16,10 +16,10 @@ from core.datasets import KITTI
 from core.utils import flow_viz
 from core.utils import frame_utils
 from core.datasets import MpiSintel
-from core.datasets import CELL
+from core.datasets import CELL_dataset
 
 
-from core.CELL2 import CELL1
+from core.CELL2 import CELL
 from core.utils.utils import InputPadder, forward_interpolate
 
 
@@ -211,8 +211,8 @@ def validate_cell(model, iters=32):
     for dstype in ['clean', 'final']:
         #aug_params = {'crop_size': args.image_size, 'min_scale': -0.2, 'max_scale': 0.6, 'do_flip': True}
 
-        val_dataset = CELL(split='training', dstype=dstype)
-        #val_dataset = CELL(aug_params,split='training', dstype=dstype)
+        val_dataset = CELL_dataset(split='training', dstype=dstype)
+        #val_dataset = CELL_dataset(aug_params,split='training', dstype=dstype)
         epe_list = []
 
 
@@ -292,7 +292,7 @@ if __name__ == '__main__':
         elif args.dataset == 'kitti':
             validate_kitti(model.module)
 
-        elif args.dataset == 'CELL':
+        elif args.dataset == 'CELL_dataset':
             validate_cell(model.module)
 
 
