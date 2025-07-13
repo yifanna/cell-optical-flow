@@ -17,9 +17,9 @@ from core.datasets import KITTI
 from core.utils import flow_viz
 from core.utils import frame_utils
 from core.datasets import MpiSintel
-from core.datasets import CELL
+from core.datasets import CELL_dataset
 
-from core.raft import RAFT
+from core.CELL2 import CELL
 from core.utils.utils import InputPadder, forward_interpolate
 
 
@@ -249,7 +249,7 @@ def validate_cell(model, iters=32, batch_size=1, dsc_threshold=0.75):
     overall_dsc_list = []
 
     for dstype in ['clean', 'final']:
-        val_dataset = CELL(split='training', dstype=dstype)
+        val_dataset = CELL_dataset(split='training', dstype=dstype)
         epe_list = []
         px1_list = []
         px3_list = []
@@ -343,7 +343,7 @@ if __name__ == '__main__':
     parser.add_argument('--alternate_corr', action='store_true', help='use efficent correlation implementation')
     args = parser.parse_args()
 
-    model = torch.nn.DataParallel(RAFT(args))
+    model = torch.nn.DataParallel(CELL(args))
     # model.load_state_dict(torch.load(args.model))
     model.load_state_dict(torch.load(args.model, map_location='cpu'))
 
@@ -363,7 +363,7 @@ if __name__ == '__main__':
         elif args.dataset == 'kitti':
             validate_kitti(model.module)
 
-        elif args.dataset == 'CELL':
+        elif args.dataset == 'CELL_dataset':
             validate_cell(model.module)
 
 
