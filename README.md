@@ -2,13 +2,13 @@
 This repository contains the source code for our paper:
 
 [Cell-flow: Cell Image Sequence Tracking Based on Semi-Supervised Optical Flow Estimation Method]<br/>
-<img src="RAFT.png">
+<img src="Cell-flow.jpg">
 
 ## Requirements
 The code has been tested with PyTorch 1.6 and Cuda 10.1.
 ```Shell
-conda create --name raft
-conda activate raft
+conda create --name Cell
+conda activate Cell
 conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=10.1 matplotlib tensorboard scipy opencv -c pytorch
 ```
 
@@ -31,6 +31,7 @@ To evaluate/train RAFT, you will need to download the required datasets.
 * [Sintel](http://sintel.is.tue.mpg.de/)
 * [KITTI](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=flow)
 * [HD1K](http://hci-benchmark.iwr.uni-heidelberg.de/) (optional)
+* [Cell](http://hci-benchmark.iwr.uni-heidelberg.de/) (optional)
 
 
 By default `datasets.py` will search for the datasets in these locations. You can create symbolic links to wherever the datasets were downloaded in the `datasets` folder
