@@ -203,3 +203,5 @@ if __name__ == '__main__':
     input2=torch.rand(1,3,696,520)
     output=block(input1,input2)
     print(output)
+
+
