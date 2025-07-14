@@ -2,7 +2,7 @@
 import torch
 
 # 加载模型参数
-params_dict = torch.load("C:/Users/m1384/Desktop/100000_raft-sintel.pth")
+params_dict = torch.load("C:/Users/m1384/Desktop/100000_raft-cell.pth")
 
 # 计算参数总量
 total_params = sum(param_tensor.numel() for param_tensor in params_dict.values())
